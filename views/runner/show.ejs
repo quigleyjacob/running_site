@@ -1,0 +1,24 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= runner.firstName %> <%= runner.lastName %></div>
+    <div class="ui top attached">
+        <div class="item">
+            <img class="ui centered rounded image" src="<%= runner.image %>">
+            <div class="content">
+                <div><strong>800:</strong> <%= runner.pr800 %></div>
+                <div><strong>1600:</strong> <%= runner.pr1600 %></div>
+                <div><strong>3200:</strong> <%= runner.pr3200 %></div>
+                <div class="bio">
+                     <p><%- runner.bio %></p>   
+                </div>
+                <a class="ui orange basic button" href="/runners/<%= runner._id %>/edit">Edit</a>
+                <!--<form id="delete" action="/runners/<%=runner._id%>?_method=DELETE" method="POST">-->
+                <!--    <button class="ui red basic button">Delete</button> -->
+                <!--</form>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>

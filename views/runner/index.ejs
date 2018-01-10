@@ -1,0 +1,31 @@
+<% include ./partials/header %>
+
+<div class="ui main text container">
+    <div class="ui huge header">Runners</div>
+    <a class="ui floated basic green button" href="/runners/new">Add Runner</a>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% runners.forEach(function(runner) { %>
+                <div class="item">
+                    <div class="image">
+                        <img src="<%= runner.image %>">
+                    </div>
+                    <div class="content">
+                        <a class=header href="/runners/<%= runner._id %>"><%=runner.firstName%> <%= runner.lastName%></a>
+                        <div class="description">
+                            <p><%- runner.school %></p>
+                        </div>
+                        <div class="extra">
+                            <a class="ui floated basic violet button" href="/runners/<%= runner._id %>">
+                                Read More
+                                <i class="right chevron icon"></i>
+                            </a>    
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>   
+    </div>
+</div>
+
+<% include ./partials/footer %>

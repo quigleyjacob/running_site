@@ -1,0 +1,52 @@
+<% include ../partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= workout.title %></div>
+    <div><em>Posted by <%= workout.author.username %></em></div>
+    <div class="ui top attached">
+        <div class="item">
+            <div class="content">
+                <div><%= workout.date.toDateString() %></div>
+                <div><%= workout.mileage %> miles</div>
+                <div class="bio">
+                     <p><%- workout.desc %></p>   
+                </div>
+                <% if ((currentUser && workout.author.id.equals(currentUser._id))) { %>
+                  <a class="ui orange basic button" href="/workouts/<%= workout._id %>/edit">Edit</a>
+                  <form id="delete" action="/workouts/<%=workout._id%>?_method=DELETE" method="post">
+                      <button class="ui red basic button">Delete</button> 
+                  </form>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <hr>
+<div class="ui comments">
+  <h2 class="ui dividing header">
+    Comments
+    <a class="ui green basic button right floated mini" href="/workouts/<%= workout._id %>/comments/new">Add a Comment</a>
+  </h2>
+  <% workout.comments.forEach(function(comment) { %>
+      <div class="comment">
+        <div class="content">
+          <a class="author"><%= comment.author.username %></a>
+          <div class="metadata">
+            <span class="date"><%= comment.createdAt %></span>
+          </div>
+          <div class="text">
+            <%= comment.text %>
+            <% if ((currentUser && comment.author.id.equals(currentUser._id))) { %>
+              <form id="delete" action="/workouts/<%=workout._id%>/comments/<%= comment._id%>?_method=DELETE" method="post">
+                  <button class="ui red basic button mini right floated">Delete</button> 
+              </form>
+              <a class="ui orange basic button mini right floated" href="/workouts/<%= workout._id %>/comments/<%= comment._id%>/edit">Edit</a>
+            <% } %>
+          </div>
+          <p>   </p>
+          <hr>
+        </div>
+      </div>
+  <% }); %>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Run Club</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheet/app.css">
+    </head>
+    <body>
+    <div class="ui fixed inverted menu">
+        <div class="ui container">
+            <div class="header item"><i class="users icon"></i>Run Club</div>
+            <a href="/" class="item">Home</a>
+        </div>
+        <div class="right menu">
+                <% if (!currentUser) { %>
+                    <div class="header item"><a href="/login">Login</a></div>
+                    <div class="header item"><a href="/register">Register</a></div>
+                <% } else { %>
+                    <div class="header item">Signed in as <%= currentUser.firstName %></div>
+                    <div class="header item"><a href="/logout">Logout</a></div>
+                <% } %>
+        </div>
+    </div>
