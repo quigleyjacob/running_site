@@ -1,19 +1,63 @@
-i.icon {
-    font-size: 2em;
+.column {
+    margin-top: 5em;
 }
 
-.container.main {
-    margin-top: 7.0em;
+.footer {
+  padding: 20px 0px;
+  background: #999;
+  text-align: center;
+  bottom: 0;
+  position: absolute;
 }
 
-img {
-    width: 500px;
+#main:before{
+    content: "";
+    position: fixed;
+    left: 0;
+    display: block;
+    background: url('https://i.pinimg.com/736x/07/05/8b/07058b79b11f0617105af234df35dd7b--forest-road-tree-forest.jpg') no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
 }
 
-#delete {
-    display: inline;
+#main{
+  z-index: 0;
 }
 
-.bio {
-    padding: 10px;
-} 
+.blog-post {
+  border-radius: 5px;
+  background-color: white;
+  margin-bottom: 30px;
+  padding: 100px;
+}
+
+.blog-post-title {
+  font-weight: 700;
+  text-align: left;
+}
+
+.blog-post-author {
+  color: grey;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.hidden {
+  display: none;
+}
+
+#logo-img {
+  height: 5em;
+  width: 15em;
+  display: inline-block;
+}
+
+.white {
+  background-color: white;
+  padding: 20px;
+}
+
+.rounded {
+  border-radius: 5px;
+}

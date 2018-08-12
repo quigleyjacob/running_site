@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Running Blog</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheet/app.css">
+  </head>
+  <body>
+
+    <div id="main" class="ui grid container">
+<!-- NAVBAR -->
+      <div class="row">
+        <img id="logo-img" src="/images/placeholder.png" alt="Blog Logo">
+      </div>
+
+      <div class="row">
+        <div id="left-tab" class="three wide column">
+          <div class="row">
+            <div class="ui vertical small menu">
+              <a id="home-button" class="item">Home</a>
+              <a id="about-button" class="item">About</a>
+              <a id="subscribe-button" class="item">Subscribe</a>
+              <a id="contact-button" class="item">Contact Us</a>
+            </div>
+          </div>
+        </div>
+
+<!-- Home Page -->
+        <div id="home-page" class="ten wide column">
+          <div class="blog-post">
+            <div class="hidden">(blog id here)</div>
+            <div class="blog-post-title">
+              Blog Title
+              <div class="blog-post-author">
+                By Jacob
+              </div>
+            </div>
+            Hello there
+          </div>
+          <div class="blog-post">
+            Hello there
+          </div>
+          <div class="blog-post">
+            Hello there
+          </div>
+          <div class="blog-post">
+            Hello there
+          </div>
+          <div class="blog-post">
+            Hello there
+          </div>
+        </div>
+
+<!-- About Page -->
+        <div id="about-page" class="ten wide column">
+          hello there from the about page
+        </div>
+
+<!-- Subscribe Page -->
+        <div id="subscribe-page" class="ten wide column white rounded">
+          <div class="ui huge header center aligned">
+            Sign up to get emails and post comments.
+          </div>
+          <form id="subscribe-form" class="ui form">
+            <div class="field">
+              <div class="two fields">
+                <div class="field">
+                  <label>First Name</label>
+                  <input type="text" name="first-name" placeholder="First Name">
+                </div>
+                <div class="field">
+                  <label>Last Name</label>
+                  <input type="text" name="last-name" placeholder="Last Name">
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>Email Address</label>
+              <input type="text" name="email" placeholder="Email Address">
+            </div>
+            <div class="field">
+              <div class="two fields">
+                <div class="field">
+                  <label>Password</label>
+                  <input type="password" name="password" placeholder="Password">
+                </div>
+                <div class="field">
+                  <label>Confirm Password</label>
+                  <input type="password" name="confirm-password" placeholder="Confirm Password">
+                </div>
+              </div>
+            </div>
+            <br>
+            <button class="ui fluid button" type="submit">Register</button>
+          </form>
+        </div>
+
+<!-- Contact Page -->
+        <div id="contact-page" class="ten wide column">
+          Our Contact Information
+        </div>
+
+        <div id="right-tab" class="three wide column"></div>
+      </div>
+      <div class="row footer rounded">
+        <div class="column footer">
+          <p>Website created by Jacob Quigley. </p>
+          <p>Much of the styling is from <a href="https://semantic-ui.com/">Semantic UI</a>. </p>
+          <p>Source code can be found <a href="https://github.com/quigleyjacob/running_site">here</a>. Reuse permitted if properly attributed.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+  <script type="text/javascript" src="/scripts/client.js"></script>
+</html>
