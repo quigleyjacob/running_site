@@ -101,8 +101,12 @@ app.get("/logout", function(req, res) {
 })
 
 app.get("/admin", (req, res) => {
-  console.log(req.session.user);
-  res.send("hello");
+  if(req.session.user && req.session.user.admin) {
+    //res.send("You are allowed to access this page");
+    res.sendFile(__dirname + "/views/admin.html");
+  } else {
+    res.send("You are not authorized to see this");
+  }
 })
 
 
