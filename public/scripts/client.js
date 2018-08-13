@@ -192,6 +192,7 @@ function showPost(obj) {
   $("#post-title").html(obj.title);
   $("#post-body").html(obj.body);
   $("#post-author").html("By " + obj.author.username);
+  $("#post-time").html(dateString(new Date(obj.createdAt)));
 }
 
 $("#blog-form").submit((e) => {
@@ -201,6 +202,7 @@ $("#blog-form").submit((e) => {
     url: "new",
     data: $("#blog-form").serialize(),
     success: (res) => {
+      $("#blog-form").trigger("reset");
       console.log(res);
     }
   })
@@ -225,12 +227,16 @@ function addListItem(obj) {
   let str = `
   <div class="blog-post">
     <div class="hidden">`+obj._id+`</div>
-    <div class="blog-post-title">
+    <h2 class="blog-post-title">
       `+obj.title+`
+      </h2>
       <div class="blog-post-author">
         By `+obj.author.username+`
       </div>
-    </div>
+      <div>
+      `+moment(new Date(obj.createdAt)).fromNow()+`
+      </div>
+      <hr>
     `+obj.body.slice(0,100)+`...
   </div>
   `;
@@ -245,7 +251,14 @@ function viewPost(e) {
     data: {id:this.children[0].textContent},
     success: (res) => {
       showPost(res);
-      //console.log(res);
     }
   })
+}
+
+function dateString(obj) {
+  //return the date in the form: month day, year at hours:minutes am/pm
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+  return monthNames[obj.getMonth()] + " " + obj.getDate() + ", " + obj.getFullYear() + " at " + (obj.getHours() % 12) + ":" + obj.getMinutes() + (obj.getHours() >= 12 ? " PM" : " AM");
 }
