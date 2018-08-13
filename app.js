@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const User = require("./models/user");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const PORT = process.env.PORT || 3000;
 
 //const workoutRoutes = require("./routes/workout");
 //const commentRoutes = require("./routes/comment");
@@ -116,6 +117,6 @@ app.get("/admin", (req, res) => {
 })
 
 
-app.listen(3000, function() {
+app.listen(PORT, function() {
    console.log("Server is running");
 });
