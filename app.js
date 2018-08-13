@@ -26,7 +26,8 @@ app.use(require("express-session")({
 
 //ROUTES
 app.get("/", (req, res) {
-  res.sendFile(__dirname, "/views/index.html");
+  res.send(__dirname);
+  //res.sendFile(__dirname, "/views/index.html");
 })
 
 app.post("/subscribe", (req, res) => {
