@@ -47,12 +47,62 @@ app.post("/subscribe", (req, res) => {
           email: email,
           password: hash
         });
+        req.session.user = newUser;
         newUser.save()
-        .then(res => res.send({success: true, message: "User added"}))
+        .then(response => res.send({success: true, message: "User added"}))
         .catch(err => res.send({success: false, message: "Unable to add user"}));
       }
     })
   })
+})
+
+app.get("/isLoggedIn", (req, res) => {
+  if(req.session.user) {
+    res.send(true);
+  } else {
+    res.send(false);
+  }
+})
+
+app.post("/login", (req, res) => {
+  const email = {email: req.body['email']};
+  const password = req.body['password'];
+  User.findOne(email, (err, user) => {
+    if (err) {
+      throw err;
+    }
+    if (user) {
+      bcrypt.compare(password, user.password, (err, resp) => {
+        if (err) {
+          throw err;
+        }
+        if(resp) {
+          req.session.user = user;
+          res.send({success: true});
+        } else {
+          res.send({success: false, message: "Incorrect Password"});
+        }
+      })
+    } else {
+      res.send({success: false, message: "Cannot find a user with this email address"});
+    }
+  })
+})
+
+app.get("/logout", function(req, res) {
+  req.session.destroy(function(err) {
+    if(err) {
+      console.log(err);
+      res.send({success: false, message: "Unable to log out"});
+    } else {
+      res.send({success: true});
+    }
+  })
+})
+
+app.get("/admin", (req, res) => {
+  console.log(req.session.user);
+  res.send("hello");
 })
 
 

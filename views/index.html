@@ -20,7 +20,9 @@
             <div class="ui vertical small menu">
               <a id="home-button" class="item">Home</a>
               <a id="about-button" class="item">About</a>
+              <a id="login-button" class="item">Login</a>
               <a id="subscribe-button" class="item">Subscribe</a>
+              <a id="logout-button" class="item">Logout</a>
               <a id="contact-button" class="item">Contact Us</a>
             </div>
           </div>
@@ -55,6 +57,30 @@
 <!-- About Page -->
         <div id="about-page" class="ten wide column">
           hello there from the about page
+        </div>
+
+<!-- Login Page -->
+        <div id="login-page" class="ten wide column white rounded">
+          <div class="ui huge header center aligned">
+            Login
+          </div>
+          <form id="login-form" class="ui form">
+            <div class="field">
+              <div class="two fields">
+                <div class="field">
+                  <label>Email</label>
+                  <input type="text" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="field">
+                  <label>Password</label>
+                  <input type="password" name="password" placeholder="Password" required>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <button class="ui fluid button" type="submit">Login</button>
+            </div>
+          </form>
         </div>
 
 <!-- Subscribe Page -->
