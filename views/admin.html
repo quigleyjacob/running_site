@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Admin Access</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheet/app.css">
   </head>
   <body>
     This is the admin page
@@ -10,6 +13,23 @@
       <li>Will contain a list of users (or just admins)</li>
       <li>A way to create new stories (should find a way to make pictures easily accessible)</li>
     </ul>
+    <form id="blog-form" class="ui form">
+      <div class="field">
+        <label>Title</label>
+        <input type="text" name="title" placeholder="title" required>
+      </div>
+      <div class="field">
+        <label>Content</label>
+        <textarea name="body" rows="8" cols="80" required></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
 
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+    <script type="text/javascript" src="/scripts/client.js"></script>
   </body>
 </html>

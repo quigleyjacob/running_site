@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const User = require("./models/user");
+const Post = require("./models/post");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const PORT = process.env.PORT || 3000;
@@ -114,6 +115,39 @@ app.get("/admin", (req, res) => {
   } else {
     res.send("You are not authorized to see this");
   }
+})
+
+app.post("/new", (req, res) => {
+  console.log(req.session.user);
+  const title = req.body['title'];
+  const body = req.body['body'];
+  if(req.session.user && req.session.user.admin) {
+    const newPost = new Post({
+      title: title,
+      body: body,
+      author: {id: req.session.user._id, username: req.session.user.firstName}
+    });
+    newPost.save()
+    .then(response => res.send({success: true, message: "Post Added"}))
+    .catch(err => res.send({success: false, message: "Unable to add post"}));
+  } else {
+    res.send({success: false, message: "You do not have access to create posts"});
+  }
+});
+
+app.get("/getPosts", (req, res) => {
+  Post.find({}, (err, posts) => {
+    if (err) throw err;
+    res.send(posts);
+  })
+})
+
+app.get("/getPost", (req, res) => {
+  const id = req.query.id;
+  Post.findById(id, (err, post) => {
+    if (err) throw err;
+    res.send(post);
+  });
 })
 
 
