@@ -10,7 +10,8 @@ const saltRounds = 10;
 //const commentRoutes = require("./routes/comment");
 //const authRoutes = require("./routes/index");
 
-mongoose.connect("mongodb://localhost/run_club_site", {useMongoClient: true});
+//mongoose.connect("mongodb://localhost/run_club_site", {useMongoClient: true});
+mongoose.connect("mongodb://runblogger:runpass1@ds119732.mlab.com:19732/run_blog");
 mongoose.Promise = global.Promise;
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/views"));
