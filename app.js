@@ -25,6 +25,10 @@ app.use(require("express-session")({
 }));
 
 //ROUTES
+app.get("/", (req, res) {
+  res.sendFile(__dirname, "/views/index.html");
+})
+
 app.post("/subscribe", (req, res) => {
   const firstName = req.body['first-name'];
   const lastName = req.body['last-name'];
