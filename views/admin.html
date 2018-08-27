@@ -5,7 +5,7 @@
     <title>Admin Access</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/stylesheet/app.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheet/blog-style.css">
   </head>
   <body>
     This is the admin page
@@ -13,23 +13,31 @@
       <li>Will contain a list of users (or just admins)</li>
       <li>A way to create new stories (should find a way to make pictures easily accessible)</li>
     </ul>
-    <form id="blog-form" class="ui form">
-      <div class="field">
-        <label>Title</label>
-        <input type="text" name="title" placeholder="title" required>
+    <div id="new-blog">
+      <div class="left">
+        <form id="blog-form" class="ui form">
+          <div class="field">
+            <label>Title</label>
+            <input id="blog-title" type="text" name="title" placeholder="title" required>
+          </div>
+          <div class="field">
+            <label>Content</label>
+            <textarea id="blog-body" name="body" rows="8" cols="80" required></textarea>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
       </div>
-      <div class="field">
-        <label>Content</label>
-        <textarea name="body" rows="8" cols="80" required></textarea>
+      <div id="blog-demo" class="right">
+        <h1 id="title"></h1>
+        <div id="body"></div>
       </div>
-      <button type="submit">Submit</button>
-    </form>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
       crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
-    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/admin.js"></script>
   </body>
 </html>

@@ -1,0 +1,26 @@
+.left {
+  width: 50%;
+  float: left;
+}
+
+.right {
+  width: 50%;
+  float: right;
+}
+
+.container {
+  margin: auto;
+  width: 100%;
+}
+
+#blog-demo {
+  padding: 10px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+#title {
+  text-align: center;
+}

@@ -224,23 +224,21 @@ function getPosts() {
 }
 
 function addListItem(obj) {
-  let str = `
+  return `
   <div class="blog-post">
-    <div class="hidden">`+obj._id+`</div>
+    <div class="hidden">${obj._id}</div>
     <h2 class="blog-post-title">
-      `+obj.title+`
+      ${obj.title}
       </h2>
       <div class="blog-post-author">
-        By `+obj.author.username+`
+        By ${obj.author.username}
       </div>
       <div>
-      `+moment(new Date(obj.createdAt)).fromNow()+`
+      ${moment(new Date(obj.createdAt)).fromNow()}
       </div>
       <hr>
-    `+obj.body.slice(0,100)+`...
-  </div>
-  `;
-  return str;
+    ${obj.body.slice(0,100)}...
+  </div>`;
 }
 
 function viewPost(e) {
